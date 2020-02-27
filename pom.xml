@@ -19,6 +19,16 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.1</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -62,115 +72,112 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.cloud</groupId>-->
-<!--        <artifactId>spring-cloud-starter-oauth2</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-data-redis</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-jdbc</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>mysql</groupId>-->
-<!--        <artifactId>mysql-connector-java</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.social</groupId>-->
-<!--        <artifactId>spring-social-config</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.social</groupId>-->
-<!--        <artifactId>spring-social-core</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.social</groupId>-->
-<!--        <artifactId>spring-social-security</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.social</groupId>-->
-<!--        <artifactId>spring-social-web</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>commons-lang</groupId>-->
-<!--        <artifactId>commons-lang</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>commons-collections</groupId>-->
-<!--        <artifactId>commons-collections</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>commons-beanutils</groupId>-->
-<!--        <artifactId>commons-beanutils</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--        <groupId>org.projectlombok</groupId>-->
-<!--        <artifactId>lombok</artifactId>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.cloud</groupId>-->
+    <!--        <artifactId>spring-cloud-starter-oauth2</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-data-redis</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-jdbc</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>mysql</groupId>-->
+    <!--        <artifactId>mysql-connector-java</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.social</groupId>-->
+    <!--        <artifactId>spring-social-config</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.social</groupId>-->
+    <!--        <artifactId>spring-social-core</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.social</groupId>-->
+    <!--        <artifactId>spring-social-security</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.social</groupId>-->
+    <!--        <artifactId>spring-social-web</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>commons-lang</groupId>-->
+    <!--        <artifactId>commons-lang</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>commons-collections</groupId>-->
+    <!--        <artifactId>commons-collections</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>commons-beanutils</groupId>-->
+    <!--        <artifactId>commons-beanutils</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-configuration-processor</artifactId>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--        <groupId>org.projectlombok</groupId>-->
+    <!--        <artifactId>lombok</artifactId>-->
+    <!--    </dependency>-->
 
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-aop</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>commons-io</groupId>-->
-<!--            <artifactId>commons-io</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-swagger2</artifactId>-->
-<!--            <version>2.7.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-swagger-ui</artifactId>-->
-<!--            <version>2.7.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.github.tomakehurst</groupId>-->
-<!--            <artifactId>wiremock</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>commons-logging</groupId>-->
-<!--            <artifactId>commons-logging</artifactId>-->
-<!--            <version>1.2</version>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-test</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-aop</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>commons-io</groupId>-->
+    <!--            <artifactId>commons-io</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>io.springfox</groupId>-->
+    <!--            <artifactId>springfox-swagger2</artifactId>-->
+    <!--            <version>2.7.0</version>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>io.springfox</groupId>-->
+    <!--            <artifactId>springfox-swagger-ui</artifactId>-->
+    <!--            <version>2.7.0</version>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.github.tomakehurst</groupId>-->
+    <!--            <artifactId>wiremock</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>commons-logging</groupId>-->
+    <!--            <artifactId>commons-logging</artifactId>-->
+    <!--            <version>1.2</version>-->
+    <!--        </dependency>-->
+    <!--    </dependencies>-->
 
 
-
-
-<!--    <dependencyManagement>-->
-<!--        <dependencies>-->
-<!--            <dependency>-->
-<!--                <groupId>io.spring.platform</groupId>-->
-<!--                <artifactId>platform-bom</artifactId>-->
-<!--                <version>Brussels-SR4</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                <version>Dalston.SR2</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
-<!--        </dependencies>-->
-<!--    </dependencyManagement>-->
-
+    <!--    <dependencyManagement>-->
+    <!--        <dependencies>-->
+    <!--            <dependency>-->
+    <!--                <groupId>io.spring.platform</groupId>-->
+    <!--                <artifactId>platform-bom</artifactId>-->
+    <!--                <version>Brussels-SR4</version>-->
+    <!--                <type>pom</type>-->
+    <!--                <scope>import</scope>-->
+    <!--            </dependency>-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.springframework.cloud</groupId>-->
+    <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+    <!--                <version>Dalston.SR2</version>-->
+    <!--                <type>pom</type>-->
+    <!--                <scope>import</scope>-->
+    <!--            </dependency>-->
+    <!--        </dependencies>-->
+    <!--    </dependencyManagement>-->
 
 
     <build>
@@ -190,8 +197,6 @@
         </plugins>
         <finalName>demo</finalName>
     </build>
-
-
 
 
 </project>

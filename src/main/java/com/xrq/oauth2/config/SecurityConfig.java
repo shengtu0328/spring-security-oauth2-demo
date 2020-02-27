@@ -1,5 +1,6 @@
 package com.xrq.oauth2.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -7,16 +8,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
-
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig  extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -31,6 +33,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     }
 
 
+    public static void main(String[] args) {
+        String encode = new BCryptPasswordEncoder().encode("123456");
+        System.out.println(encode);
+    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,10 +51,13 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("maojie")
-                .password(passwordEncoder().encode("123456"))
-                .authorities(AuthorityUtils.commaSeparatedStringToAuthorityList("admin,ROLE_USER"));
+
+        auth.userDetailsService(userDetailsService);
+
+//        auth.inMemoryAuthentication()
+//                .withUser("maojie")
+//                .password(passwordEncoder().encode("123456"))
+//                .authorities(AuthorityUtils.commaSeparatedStringToAuthorityList("admin,ROLE_USER"));
     }
 
 
