@@ -15,8 +15,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.util.ArrayList;
 
 /**
@@ -37,7 +41,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
-
+    @Resource
+    private DataSource dataSource;
+    @Bean
+    public ClientDetailsService clientDetails() {
+        return new JdbcClientDetailsService(dataSource);
+    }
 
 
     @Override
@@ -57,15 +66,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
+        clients.withClientDetails(clientDetails());
+
+
         //     clients.jdbc(); clients信息存在数据库
         //     clients.inMemory(); clients信息存在内存
-        clients.inMemory()
-                .withClient("imooc")
-                .secret(passwordEncoder.encode("imoocsecret"))
-                .accessTokenValiditySeconds(7200)//token有效时间 单位：秒  即/oauth/token 返回结果中的expires_in
-                .authorizedGrantTypes("refresh_token", "password","authorization_code")//对当前这个client  如imooc支持的授权模式 没有写出来的就不支持
-                .scopes("all","read","write");//发送出去token的权限 (oauth中的权限)  这里配了，客户端发请求就可以不带scope参数        如果请求传的scope不在配置的范围里会报错
-
+//        clients.inMemory()
+//                .withClient("imooc")
+//                .secret(passwordEncoder.encode("imoocsecret"))
+//                .accessTokenValiditySeconds(7200)//token有效时间 单位：秒  即/oauth/token 返回结果中的expires_in
+//                .authorizedGrantTypes("refresh_token", "password","authorization_code")//对当前这个client  如imooc支持的授权模式 没有写出来的就不支持
+//                .scopes("all","read","write");//发送出去token的权限 (oauth中的权限)  这里配了，客户端发请求就可以不带scope参数        如果请求传的scope不在配置的范围里会报错
+//
 
 //
 //                .and()

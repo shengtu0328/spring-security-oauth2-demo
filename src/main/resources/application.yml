@@ -1,0 +1,15 @@
+
+
+
+#security.basic.enabled = false
+
+server:
+  port: 8060
+spring:
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/imooc-security-demo
+    username: root
+    password: 123456
