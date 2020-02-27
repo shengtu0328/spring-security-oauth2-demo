@@ -45,8 +45,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
         endpoints
                 .accessTokenConverter(jwtAccessTokenConverter)
-                .authenticationManager(authenticationManager);
-//                .userDetailsService(userDetailsService)
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);//refresh_token 的调用需要配置这个
     }
 
 
