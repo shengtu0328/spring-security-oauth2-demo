@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Base64;
+
 /**
  * @author zhailiang
  */
@@ -29,6 +31,13 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+    public static void main(String[] args) {
+
+        String s = "Basic " + Base64.getEncoder().encodeToString(("imooc" + ":" + "imoocsecret").getBytes());
+        System.out.println(s);
+    }
 
     /*
      * 这个方法是在平时登录中获取用户信息与数据库中做比较完成认证，如果校验成功会把用户信息放在session里面
